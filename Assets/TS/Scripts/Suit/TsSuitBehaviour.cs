@@ -1,10 +1,19 @@
 using TsSDK;
 using UnityEngine;
 
+/// <summary>
+/// Component that provides suit device interface by given SuitIndex.
+/// </summary>
 public class TsSuitBehaviour : TsDeviceBehaviour
 {
+    /// <summary>
+    /// Suit index used by component. 
+    /// </summary>
     public SuitIndex TargetSuitIndex { get { return m_suitIndex; } }
 
+    /// <summary>
+    /// Returns suit device interface if available. Otherwise returns null.
+    /// </summary>
     public ISuit Suit { get { return (ISuit)Device; } }
     
     [SerializeField]

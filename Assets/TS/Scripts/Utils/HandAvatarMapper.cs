@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using TsApi;
+using TsAPI.Types;
 using UnityEngine;
 
 public class HandAvatarMapper

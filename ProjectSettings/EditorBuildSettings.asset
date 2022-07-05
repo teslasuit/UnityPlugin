@@ -9,7 +9,7 @@ EditorBuildSettings:
     path: Assets/TS/Examples/Scenes/RootScene/Root.unity
     guid: 6f2811f2f67008d46a49e378c9c1ce90
   - enabled: 1
-    path: Assets/TS/Examples/Scenes/Mocap/Mocap.unity
+    path: Assets/TS/Examples/Scenes/Mocap/SuitMocap.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
   - enabled: 1
     path: Assets/TS/Examples/Scenes/Haptic/HapticAnimationPlayback.unity
@@ -17,4 +17,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/TS/Examples/Scenes/Ppg/ProcessedPpg.unity
     guid: eee6f4e6ef00ceb4cbda83fa5a8c30d3
+  - enabled: 1
+    path: Assets/TS/Examples/Scenes/Mocap/GloveMocap.unity
+    guid: 7fbe5ab30102d874c913fa6f84d19795
   m_configObjects: {}

@@ -1,6 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
-using TsApi;
+using TsAPI.Types;
 using UnityEngine;
 
 public static class Conversion

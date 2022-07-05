@@ -1,6 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using TsSDK;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -19,7 +16,6 @@ public class ExamplesViewer : MonoBehaviour
     void Start()
     {
         m_dropdown.onValueChanged.AddListener(OnSceneSelected);
-        Debug.LogError(TsEnvironment.GetInstalledPath());
     }
 
 

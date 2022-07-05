@@ -1,17 +1,32 @@
+using TsAPI.Types;
 using TsSDK;
 using UnityEngine;
 
+/// <summary>
+/// Component that provides glove device interface by given GloveIndex and TsDeviceSide.
+/// </summary>
 public class TsGloveBehaviour : TsDeviceBehaviour
 {
+    /// <summary>
+    /// Glove index used by component. 
+    /// </summary>
     public GloveIndex TargetGloveIndex { get { return m_gloveIndex; } }
-    public GloveSide TargetGloveSide { get { return m_gloveSide; } }
 
+    /// <summary>
+    /// Glove side used by component. 
+    /// </summary>
+    public TsDeviceSide TargetGloveSide { get { return m_gloveSide; } }
+
+
+    /// <summary>
+    /// Returns glove device interface if available. Otherwise returns null.
+    /// </summary>
     public IGlove Glove { get { return (IGlove)Device; } }
 
     [SerializeField]
     private GloveIndex m_gloveIndex = GloveIndex.Glove0;
     [SerializeField] 
-    private GloveSide m_gloveSide = GloveSide.Right;
+    private TsDeviceSide m_gloveSide = TsDeviceSide.Right;
 
     void Start()
     {
@@ -21,7 +36,7 @@ public class TsGloveBehaviour : TsDeviceBehaviour
 
         switch (m_gloveSide)
         {
-            case GloveSide.Left:
+            case TsDeviceSide.Left:
             {
                 foreach (var glove in gloveManager.LeftGloves)
                 {
@@ -29,7 +44,7 @@ public class TsGloveBehaviour : TsDeviceBehaviour
                 }
                 break;
             }
-            case GloveSide.Right:
+            case TsDeviceSide.Right:
             {
                 foreach (var glove in gloveManager.RightGloves)
                 {
