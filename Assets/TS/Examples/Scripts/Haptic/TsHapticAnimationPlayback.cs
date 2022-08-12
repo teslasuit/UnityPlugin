@@ -26,7 +26,7 @@ public class TsHapticAnimationPlayback : MonoBehaviour
 
     private void Update()
     {
-        if (m_hapticPlayer == null)
+        if (m_hapticPlayer == null || m_hapticPlayer.PlayerHandle == null)
         {
             return;
         }

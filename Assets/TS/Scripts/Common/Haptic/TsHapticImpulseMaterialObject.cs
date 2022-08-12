@@ -26,9 +26,8 @@ public class TsHapticImpulseMaterialObject : MonoBehaviour
     {
         var collisionHandler = collision.gameObject.GetComponent<TsHapticCollisionHandler>();
 
-        if(collisionHandler != null)
+        if(collisionHandler != null && collisionHandler.HapticPlayer.Device != null)
         {
-
             var device = collisionHandler.HapticPlayer.Device;
             var playable = device.HapticPlayer.GetPlayable(m_hapticMaterial.Instance as IHapticAsset) as IHapticMaterialPlayable;
             playable.Play();
@@ -39,7 +38,7 @@ public class TsHapticImpulseMaterialObject : MonoBehaviour
     {
         var collisionHandler = collision.gameObject.GetComponent<TsHapticCollisionHandler>();
 
-        if(collisionHandler != null)
+        if(collisionHandler != null && collisionHandler.HapticPlayer.Device != null)
         {
             var playable = collisionHandler.HapticPlayer.PlayerHandle.GetPlayable(m_hapticMaterial.Instance as IHapticAsset) as IHapticMaterialPlayable;
             collisionHandler.AddImpact(playable, collision.impulse.magnitude / maxImpulse, minCollisionDurationMs);
@@ -50,7 +49,7 @@ public class TsHapticImpulseMaterialObject : MonoBehaviour
     {
         var collisionHandler = collision.gameObject.GetComponent<TsHapticCollisionHandler>();
 
-        if (collisionHandler != null)
+        if (collisionHandler != null && collisionHandler.HapticPlayer.Device != null)
         {
             var playable = collisionHandler.HapticPlayer.PlayerHandle.GetPlayable(m_hapticMaterial.Instance as IHapticAsset) as IHapticMaterialPlayable;
             collisionHandler.RemoveImpact(playable);

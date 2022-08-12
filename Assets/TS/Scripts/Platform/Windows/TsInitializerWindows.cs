@@ -1,20 +1,19 @@
-using Microsoft.Win32;
 using System;
 using System.Runtime.InteropServices;
 using UnityEngine;
 
 public class TsInitializerWindows : TsInitializerImpl
 {
-    private const string TS_REG_PATH = @"SOFTWARE\Teslasuit\Studio\";
-    private const string TS_REG_LIB_PATH_KEY = "TESLASUIT_API_LIB_PATH";
+    private const string APIPathKey = "TESLASUIT_API_LIB_PATH";
 
     public override string GetAPILibraryPath()
     { 
-        var pathKey = Registry.LocalMachine.OpenSubKey(TS_REG_PATH);
+        var pathKey = Environment.GetEnvironmentVariable(APIPathKey);
         if (pathKey != null)
         {
-            return (string)pathKey.GetValue(TS_REG_LIB_PATH_KEY);
+            return pathKey;
         }
+
         return "";
     }
 

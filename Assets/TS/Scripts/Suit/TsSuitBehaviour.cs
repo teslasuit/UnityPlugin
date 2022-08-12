@@ -1,3 +1,4 @@
+using System.Linq;
 using TsSDK;
 using UnityEngine;
 
@@ -9,7 +10,22 @@ public class TsSuitBehaviour : TsDeviceBehaviour
     /// <summary>
     /// Suit index used by component. 
     /// </summary>
-    public SuitIndex TargetSuitIndex { get { return m_suitIndex; } }
+    public SuitIndex TargetSuitIndex
+    {
+        get { return m_suitIndex; }
+        set
+        {
+            if (m_suitIndex != value)
+            {
+                if (Device != null)
+                {
+                    UpdateState(null, false);
+                }
+                m_suitIndex = value;
+                ValidateSuitIndex();
+            }
+        }
+    }
 
     /// <summary>
     /// Returns suit device interface if available. Otherwise returns null.
@@ -22,7 +38,7 @@ public class TsSuitBehaviour : TsDeviceBehaviour
     private void Start()
     {
         var suitManager = TsManager.Root.SuitManager;
-        suitManager.OnSuitConnected += OnSuitConnected; ;
+        suitManager.OnSuitConnected += OnSuitConnected;
         suitManager.OnSuitDisconnected += OnSuitDisconnected;
 
         foreach (var suit in suitManager.Suits)
@@ -47,5 +63,15 @@ public class TsSuitBehaviour : TsDeviceBehaviour
             return;
         }
         UpdateState(null, false);
+    }
+
+    private void ValidateSuitIndex()
+    {
+        var suitManager = TsManager.Root.SuitManager;
+        var targetSuitExpr = suitManager.Suits.Where(item => item.Index == m_suitIndex);
+        if (targetSuitExpr.Any())
+        {
+            OnSuitConnected(targetSuitExpr.First());
+        }
     }
 }

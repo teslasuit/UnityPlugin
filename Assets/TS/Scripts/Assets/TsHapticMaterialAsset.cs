@@ -16,6 +16,6 @@ public class TsHapticMaterialAsset : TsAssetBase
 
     protected override IAsset Load()
     {
-        return TsManager.Root.AssetManager.CreateMaterialAsset((IHapticAsset)m_hapticEffect.Instance, (IHapticAsset)m_touchSequence.Instance);
+        return TsManager.Root.AssetManager.CreateMaterialAsset((IHapticAsset)m_touchSequence.Instance, (IHapticAsset)m_hapticEffect.Instance);
     }
 }
