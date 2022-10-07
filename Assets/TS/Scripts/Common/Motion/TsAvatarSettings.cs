@@ -23,7 +23,6 @@ public class TsAvatarSettings : ScriptableObject
     [SerializeField]
     private float m_armsTPoseToIPoseDegrees = 83;
     [SerializeField]
-    [HideInInspector]
     private TsHumanBone[] m_bones;
     [SerializeField]
     [HideInInspector]
